@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySeries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="film.svg">
+</head>
+<body onload=set_time()>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script src="controle.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Series</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">More</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SerieCom</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+      <div class="image-data" id="image-slider">
+        <img src="https://i.pinimg.com/originals/b6/55/ef/b655ef63ea3889e832f5afb08f11e692.gif" width="100%" height="400px" id="data" >
+        <img src="data:image/jpeg;base64,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" width="100%" height="400px" style="display:none">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b23f5b41281639.57a00ad43e518.gif" width="100%" height="400px" style="display:none">
+        <img src="https://media2.giphy.com/media/3oEjI1erPMTMBFmNHi/giphy.gif" width="100%" height="400px" style="display:none">
+      </div>
+      <br>
+      <br>
+      <div class="container">
+          <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://pbs.twimg.com/profile_images/1386711841410359298/Dqme1G0m_400x400.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Game Of Thrones</h5>
+                          <p class="card-text">Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. Pendant ce temps, complots et rivalités se jouent sur le continent pour s'emparer du Trône de Fer...</p>
+                          <a href="presentation.html" class="btn btn-primary">Go Check</a>
+                        </div>
+                      </div>
+                      <div class="card" style="width: 18rem;">
+                        <img src="http://www.asud.org/wp-content/themes/yootheme/cache/Breaking-bad-6e067632.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Breaking Bad</h5>
+                          <p class="card-text">Atteint d'un cancer incurable, le professeur de chimie Walter White décide de tout mettre en oeuvre pour mettre définitivement à l'abri sa famille. Sa solution ?</p>
+                          <a href="#" class="btn btn-primary">Check it</a>
+                        </div>
+                      </div>
+                      <div class="card" style="width: 18rem;">
+                        <img src="https://fr.web.img6.acsta.net/pictures/21/02/11/14/15/4218723.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Chernobyl</h5>
+                          <p class="card-text">26 avril 1986, l'histoire vraie de la pire catastrophe causée par l'homme et de ceux qui ont sacrifié leur vie pour sauver l'Europe du drame...</p>
+                          <a href="#" class="btn btn-primary">Check it</a>
+                        </div>
+                      </div>
+                      <div class="card" style="width: 18rem;">
+                        <img src="https://fr.web.img6.acsta.net/pictures/210/457/21045721_20131001172258551.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Peaky Blinders</h5>
+                          <p class="card-text">En 1919, la révolte gronde dans le Birmingham de l'après-Guerre. Les "Peaky Blinders", dont plusieurs membres sont issus de la famille Shelby, comptent parmi les éléments les plus dangereux. </p>
+                          <a href="#" class="btn btn-primary">Check it</a>
+                        </div>
+                      </div>
+                    </div>
+          <div class="row">
+              <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://avis2femmes.files.wordpress.com/2019/06/when-they-see-us.jpg?w=640" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">When they see us</h5>
+                      <p class="card-text">L'histoire vraie de cinq adolescents de couleur accusés de viol alors qu'ils étaient en réalité innocents.</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img5.acsta.net/pictures/18/11/05/18/04/4981046.jpg" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Sherlock</h5>
+                      <p class="card-text">Les aventures de Sherlock Holmes et de son acolyte de toujours, le docteur Watson, sont transposées au XXIème siècle...
+                        SPECTATEURS</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img5.acsta.net/pictures/21/02/11/13/42/2614007.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">True Detective</h5>
+                      <p class="card-text">A chaque saison, son histoire. True Detective nous embarque dans des récits policiers mêlant mysticisme, réflexions philosophiques et personnages torturés. </p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://starzplay-img-prod-ssl.akamaized.net/474w/MGM/VIKINGSY2013S06E001/VIKINGSY2013S06E001-474x677-PST.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Vikings</h5>
+                      <p class="card-text">Série à suivre en France à l'heure US sur Canal+ Séries - Scandinavie, à la fin du 8ème siècle. Ragnar Lodbrok, un jeune guerrier viking, lassé des pillages sur les terres de l'Est, se met en tête d'explorer l'Ouest.
+                      </p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                </div>
+            </div>    
+          <div class="row">
+              <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://pic.clubic.com/v1/images/1785095/raw" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">The Walking Dead</h5>
+                      <p class="card-text">Après une apocalypse ayant transformé la quasi-totalité de la population en zombies, un groupe d'hommes et de femmes mené par l'officier Rick Grimes tente de survivre...</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://media.senscritique.com/media/000000009466/source_big/Dexter.jpg" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Dexter</h5>
+                      <p class="card-text">Brillant expert scientifique du service médico-légal de la police de Miami, Dexter Morgan est spécialisé dans l'analyse de prélèvements sanguins. Mais voilà, Dexter cache un terrible secret : il est également tueur en série.
+                      </p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/19/08/07/17/01/2286697.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">MindHunter</h5>
+                      <p class="card-text">Comment anticiper la folie quand on ignore comment fonctionnent les fous ? Deux agents du FBI imaginent une enquête aux méthodes révolutionnaires et se lancent dans une véritable odyssée pour obtenir des réponses.</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img5.acsta.net/pictures/17/10/20/14/48/4859838.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Godless</h5>
+                      <p class="card-text">Frank Griffin, un hors-la-loi semant la terreur dans l'Ouest américain des années 1880, traque Roy Goode, son ex-partenaire, devenu un ennemi. Durant sa quête, il se retrouve à La Belle, Nouveau Mexique - une ville entièrement bâtie et régie par des femmes.</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          <div class="row">
+              <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTU4NzA4MDEwNF5BMl5BanBnXkFtZTgwMTQxODYzNjM@._V1_FMjpg_UX1000_.jpg" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">The Haunting Of Hill House</h5>
+                      <p class="card-text">Plusieurs frères et sœurs qui, enfants, ont grandi dans la demeure qui allait devenir la maison hantée la plus célèbre des États-Unis sont contraints de se retrouver pour faire face à cette tragédie ensemble.</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img5.acsta.net/pictures/18/04/12/10/49/5377636.jpg" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">The originals</h5>
+                      <p class="card-text">Spin-off de Vampire Diaries centré autour du personnage de Klaus.
+                        SPECTATEURS</p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://starzplay-img-prod-ssl.akamaized.net/474w/universal/MRROBOTY2015S01E001C/MRROBOTY2015S01E001C-474x677-PST.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Mr.Robot</h5>
+                      <p class="card-text">Elliot est un jeune programmeur associal qui souffre d'un trouble du comportement compliquant ces rapports avec les gens. Il travaille pour une firme spécialisée dans la cyber-sécurité. 
+                      </p>
+                      <a href="#" class="btn btn-primary">Check it</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="https://fr.web.img4.acsta.net/pictures/17/11/10/12/18/2448823.jpg" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Dark</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+      </div>
+
+</body>
+</html>
